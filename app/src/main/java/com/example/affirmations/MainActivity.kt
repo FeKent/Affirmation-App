@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AffirmationApp("Android")
+                    AffirmationApp()
                 }
             }
         }
@@ -46,14 +46,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun AffirmationApp(name: String, modifier: Modifier = Modifier) {
-    AffirmationList(affirmationList = Datasource().loadAffirmations(),)
+fun AffirmationApp() {
+    AffirmationList(affirmationList = Datasource().loadAffirmations())
 }
 
 @Composable
 fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
     Card(modifier = modifier) {
-        Column() {
+        Column {
             Image(
                 painter = painterResource(affirmation.imageResourceId),
                 contentDescription = stringResource(affirmation.stringResourceId),
